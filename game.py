@@ -78,7 +78,7 @@ class Game(object):
     def begin_battle(self):
         del self.clickable_things
         self.clickable_things = self.battle.setup_new_battle_and_get_monsters(
-            self.player.monsters_in_party)
+            self.player.in_party)
         
     def show_all_objects_in_list(self, objects, is_dictionary=False):
         # This takes either a dictionary or a list and updates each object,

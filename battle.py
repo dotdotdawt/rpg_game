@@ -25,29 +25,6 @@ MESSAGE_SIZE = 20
 MESSAGE_COLOR = (200, 180, 200)
 MESSAGE_BG_COLOR = (20, 40, 20)
 
-# I am trying to find a fancier way of doing this that looks good.
-# Look into this more later. 
-"""
-SCREEN_SIZE = (800, 600) # MAKE SURE THIS IS ACCURATE
-HALF_X = SCREEN_SIZE[0]/2
-HALF_Y = SCREEN_SIZE[1]/2
-SCREEN_OFFSET_BOT = (HALF_X-50, 0)
-SCREEN_OFFSET_TOP = (HALF_X+50, 0)
-HP_OFFSET = (0, 50)
-SPRITE_OFFSET = (100, 25)
-
-X_ANCHOR = (SCREEN_SIZE[0]-SCREEN_OFFSET_BOT[0], SCREEN_SIZE[1]-SCREEN_OFFSET_BOT[1])
-Y_ANCHOR = (SCREEN_OFFSET_TOP[0], SCREEN_OFFSET_TOP[1])
-
-X_NAME_LOCATION = (X_ANCHOR[0], X_ANCHOR[1])
-X_HP_LOCATION = (X_ANCHOR[0]+HP_OFFSET[0], X_ANCHOR[1]+HP_OFFSET[1])
-X_SPRITE_LOCATION = (X_ANCHOR[0]-SPRITE_OFFSET[0], X_ANCHOR[1]+SPRITE_OFFSET[1])
-
-Y_NAME_LOCATION = (Y_ANCHOR[0], Y_ANCHOR[1])
-Y_HP_LOCATION = (Y_ANCHOR[0]-HP_OFFSET[0], Y_ANCHOR[1]+HP_OFFSET[1])
-Y_SPRITE_LOCATION = (Y_ANCHOR[0]+SPRITE_OFFSET[0], Y_ANCHOR[1]+SPRITE_OFFSET[1])
-"""
-
 class Battle(object):
     # Battle holds all references to text surfaces, HP/name displays, and each monster
     # involved in a fight. Battle.state is in charge of everything here.

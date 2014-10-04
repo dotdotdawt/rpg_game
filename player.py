@@ -15,7 +15,7 @@ class Player(object):
     #
     def __init__(self):
         self.name = 'player'
-        self.all_monsters = []
+        self.characters = []
         self.x = 400
         self.y = 400
         self.size = (32, 32)
@@ -27,11 +27,14 @@ class Player(object):
         self.setup()
 
     def setup(self):
-        self.all_monsters.append(monster.Monster('George', 'player', level=14))
-        self.monsters_in_party = self.all_monsters
+        self.characters.append(monster.Monster('George', 'player', level=9))
+        self.characters.append(monster.Monster('Cloud', 'player', level=13))
+        for char in self.characters:
+            char.make_legendary()
+        self.in_party = self.characters
 
     def get_active_monster(self):
-        return self.monsters_in_party[0]
+        return self.in_party[0]
 
     def move(self, direction, multi):
         if multi:

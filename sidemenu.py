@@ -3,13 +3,14 @@ import pygame
 import text
 import settings
 
+NEW_STYLE_Y_OFFSET = 408
 SCREEN_SIZE = settings.SCREEN_SIZE
 RIGHT_SIDE_OFFSET = 175
-TEXT_EDGE_BUFFER = 8 # Distance between where the menu background starts and text starts
-MENU_BOTTOM_BUFFER = 300 # How far from bottom of screen menu hangs
+TEXT_EDGE_BUFFER = 4 # Distance between where the menu background starts and text starts
+MENU_BOTTOM_BUFFER = 430 # How far from bottom of screen menu hangs
 MENU_CUTOFF = (24, 24)
 BASE_X_LOCATION = SCREEN_SIZE[0]-RIGHT_SIDE_OFFSET
-BASE_Y_LOCATION = 25
+BASE_Y_LOCATION = 24 + NEW_STYLE_Y_OFFSET
 X_LOCATION_INCREASE = 50
 Y_LOCATION_INCREASE = 16
 X_COLUMN = 0
@@ -18,17 +19,12 @@ TEXT_TYPES = ['name', 'level', 'curr_xp', 'next_xp', 'hp', 'ph_atk', 'ph_def', '
 IMPORTANT_TYPES = ['name']
 LOCATIONS = {}
 
-#for text_type in TEXT_TYPES:
-#    new_x = BASE_X_LOCATION + (X_LOCATION_INCREASE * X_COLUMN)
-#    new_y = BASE_Y_LOCATION + (Y_LOCATION_INCREASE * Y_ROW)
-#    LOCATIONS[text_type] = (new_x, new_y)
-
 for i in range(0, len(TEXT_TYPES)):
     x = BASE_X_LOCATION + MENU_CUTOFF[0]
     y = BASE_Y_LOCATION + MENU_CUTOFF[1] + (Y_LOCATION_INCREASE * i)
     if i == 0: # Hacking this
-        y -= 16 # Seperate the name title from stats
-        x += 14 # Center the name
+        y -= 4 # Seperate the name title from stats
+        x += 34 # Center the name
     LOCATIONS[TEXT_TYPES[i]] = (x, y)
 
 TEXT_SIZE_IMPORTANT = 24
@@ -69,7 +65,7 @@ class SideMenu(object):
         self.bg_img = pygame.surface.Surface((x_size, y_size))
         self.bg_rect = self.bg_img.get_rect()
         x_loc = BASE_X_LOCATION - TEXT_EDGE_BUFFER + MENU_CUTOFF[0]
-        y_loc = MENU_CUTOFF[1]
+        y_loc = MENU_CUTOFF[1] + NEW_STYLE_Y_OFFSET + 16
         self.bg_rect.topleft = (x_loc, y_loc)
         self.bg_img.fill(self.get_bg_color())
 
